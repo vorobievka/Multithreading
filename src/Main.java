@@ -34,20 +34,20 @@ public class Main {
                     }
                 }
 
-                  return maxSize;
+                return maxSize;
             };
-              final Future<String> job = threadPool.submit(task);
-              future.add(job);
+            final Future<String> job = threadPool.submit(task);
+            future.add(job);
 
         }
 
-         List<Integer> results = new ArrayList<Integer>();
+        List<Integer> results = new ArrayList<Integer>();
 
-         for (Future futuring : future) {
-             results.add((Integer) futuring.get());
-         }
+        for (Future futuring : future) {
+            results.add((Integer) futuring.get());
+        }
         Collections.sort(results);
-        System.out.println("max = " + results.get(results.size()-1));
+        System.out.println("max = " + results.get(results.size() - 1));
         long endTs = System.currentTimeMillis(); // end time
         threadPool.shutdown();
 
